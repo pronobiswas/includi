@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+
+      #wayOfWorking {
+        width: 100%;
+        height: 100%;
+        min-height: 100vh;
+        background-color: #ffd900;
+      }
+      #wayOfWorking .mainWarper {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 0;
+      }
+      #wayOfWorking .mainWarper .static_content {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #wayOfWorking .mainWarper .static_content .text_content {
+        width: 80%;
+        padding: 80px 40px;
+      }
+      #wayOfWorking .mainWarper .static_content .text_content h1 {
+        font-size: 6vw;
+        line-height: 0.8;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+      }
+      #wayOfWorking .mainWarper .static_content .text_content p {
+        font-size: 18px;
+        margin-bottom: 40px;
+      }
+      #wayOfWorking .mainWarper .static_content .text_content .pro_button {
+        border: 1px solid black;
+        border-radius: 50px;
+        padding: 8px 20px;
+        font-size: 24px;
+        background-color: transparent;
+        transition: 0.2s all linear;
+        cursor: pointer;
+      }
+      #wayOfWorking
+        .mainWarper
+        .static_content
+        .text_content
+        .pro_button
+        .btn_arrow {
+        display: inline-block;
+        transform: rotate(-45deg);
+        transition: 0.3s all linear;
+      }
+      #wayOfWorking
+        .mainWarper
+        .static_content
+        .text_content
+        .pro_button:hover {
+        background-color: #000000;
+        border-color: transparent;
+        color: #ffd900;
+      }
+      #wayOfWorking
+        .mainWarper
+        .static_content
+        .text_content
+        .pro_button:hover
+        .btn_arrow {
+        transform: translateY(5px) translateX(5px) rotate(0deg);
+      }
+      #wayOfWorking .mainWarper .dyanamic_component {
+        width: 50%;
+        padding: 10px 10px 0 0;
+      }
+      #wayOfWorking .mainWarper .dyanamic_component .blackBox {
+        width: 100%;
+        padding: 30px;
+        height: calc(100vh - 100px);
+        background-color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      #wayOfWorking
+        .mainWarper
+        .dyanamic_component
+        .blackBox
+        .hexagon_container {
+        width: 570px;
+        position: relative;
+        background-color: transparent;
+      }
+      #wayOfWorking
+        .mainWarper
+        .dyanamic_component
+        .blackBox
+        .hexagon_container
+        .outerText {
+        position: absolute;
+        color: #ffd900;
+        z-index: 9;
+        font-size: 24px;
+      }
+      #wayOfWorking
+        .mainWarper
+        .dyanamic_component
+        .blackBox
+        .hexagon_container
+        .outer1 {
+        top: 53px;
+        right: 71px;
+        transform: rotate(30deg);
+      }
+      #wayOfWorking
+        .mainWarper
+        .dyanamic_component
+        .blackBox
+        .hexagon_container
+        .outer2 {
+        top: 290px;
+        right: -73px;
+        transform: rotate(90deg);
+      }
+      #wayOfWorking
+        .mainWarper
+        .dyanamic_component
+        .blackBox
+        .hexagon_container
+        .outer3 {
+        bottom: 52px;
+        right: 67px;
+        transform: rotate(-30deg);
+      }
+      #wayOfWorking
+        .mainWarper
+        .dyanamic_component
+        .blackBox
+        .hexagon_container
+        .outer4 {
+        bottom: 10%;
+        left: 10%;
+        transform: rotate(30deg);
+      }
+      #wayOfWorking
+        .mainWarper
+        .dyanamic_component
+        .blackBox
+        .hexagon_container
+        .outer5 {
+        top: 50%;
+        left: -17%;
+        transform: rotate(-90deg);
+      }
+      #wayOfWorking
+        .mainWarper
+        .dyanamic_component
+        .blackBox
+        .hexagon_container
+        .outer6 {
+        top: 10%;
+        left: 14%;
+        transform: rotate(-30deg);
+      }
+      #wayOfWorking
+        .mainWarper
+        .dyanamic_component
+        .blackBox
+        .hexagon_container
+        .hexagon_warper {
+        width: 563px;
+        height: 647px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-clip-path: polygon(
+          50% 0,
+          100% 25%,
+          100% 75%,
+          50% 100%,
+          0 75%,
+          0 25%
+        );
+        clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+        background: rgba(255, 217, 0, 0.231372549);
+        background-image: conic-gradient(
+          #ffd900 0deg 1deg,
+          rgba(255, 217, 0, 0) 10deg 360deg
+        );
+        position: relative;
+        z-index: 1;
+        padding: 2px;
+      }
+      #wayOfWorking
+        .mainWarper
+        .dyanamic_component
+        .blackBox
+        .hexagon_container
+        .hexagon_warper
+        .hexagon {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-clip-path: inherit;
+        clip-path: inherit;
+        background-color: #131001;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+      #wayOfWorking
+        .mainWarper
+        .dyanamic_component
+        .blackBox
+        .hexagon_container
+        .hexagon_warper
+        .hexagon
+        .mid_ball {
+        width: 100px;
+        height: 100px;
+        border: 1px solid rgba(255, 217, 0, 0.3764705882);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: #000000;
+        background-image: conic-gradient(
+          #ffd900 0deg 10deg,
+          rgba(255, 217, 0, 0) 10deg 360deg
+        );
+        position: relative;
+      }
+      #wayOfWorking
+        .mainWarper
+        .dyanamic_component
+        .blackBox
+        .hexagon_container
+        .hexagon_warper
+        .hexagon
+        .mid_ball::before {
+        position: absolute;
+        content: "";
+        width: calc(100% - 2px);
+        height: calc(100% - 2px);
+        background-color: #000000;
+        border-radius: 50%;
+      }
+      #wayOfWorking
+        .mainWarper
+        .dyanamic_component
+        .blackBox
+        .hexagon_container
+        .hexagon_warper
+        .hexagon
+        .mid_ball
+        .middle {
+        width: 20px;
+        height: 20px;
+        background-color: #ffd900;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        position: relative;
+      }
+      #wayOfWorking
+        .mainWarper
+        .dyanamic_component
+        .blackBox
+        .hexagon_container
+        .hexagon_warper
+        .hexagon
+        .mid_ball
+        .middle::before {
+        content: "";
+        position: absolute;
+        bottom: 45%;
+        left: 5px;
+        width: 0;
+        height: 0;
+        border-top: 400px solid transparent;
+        border-left: 550px solid rgba(255, 217, 0, 0.4431372549);
+        border-bottom: 340px solid transparent;
+        border-right: 92px solid transparent;
+      }
+
+      @media only screen and (max-width: 600px) {
+        #wayOfWorking {
+          width: 100%;
+          height: 100%;
+          min-height: 100vh;
+          background-color: #ffd900;
+        }
+        #wayOfWorking .mainWarper {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 0;
+        }
+        #wayOfWorking .mainWarper .static_content {
+          width: 100%;
+          order: 1;
+        }
+        #wayOfWorking .mainWarper .static_content .text_content {
+          width: 100%;
+          padding: 80px 40px;
+        }
+        #wayOfWorking .mainWarper .static_content .text_content h1 {
+          font-size: 6vw;
+          line-height: 1;
+          text-transform: uppercase;
+          margin-bottom: 30px;
+        }
+        #wayOfWorking .mainWarper .static_content .text_content p {
+          font-size: 18px;
+        }
+        #wayOfWorking .mainWarper .dyanamic_component {
+          width: 100%;
+          padding: 10px 10px 0 0;
+        }
+        #wayOfWorking .mainWarper .dyanamic_component .blackBox {
+          width: 100%;
+          padding: 30px;
+          height: calc(100vh - 100px);
+          overflow: hidden;
+        }
+        #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon {
+          width: 363px;
+          height: 417.1598579041px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          -webkit-clip-path: polygon(
+            50% 0,
+            100% 25%,
+            100% 75%,
+            50% 100%,
+            0 75%,
+            0 25%
+          );
+          clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+          background-color: rgba(255, 217, 0, 0.1568627451);
+          overflow: hidden;
+        }
+        #wayOfWorking
+          .mainWarper
+          .dyanamic_component
+          .blackBox
+          .hexagon
+          .mid_ball {
+          width: 100px;
+          height: 100px;
+          border: 1px solid rgba(255, 217, 0, 0.3764705882);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          background-color: #000000;
+          background-image: conic-gradient(
+            #ffd900 0deg 10deg,
+            rgba(255, 217, 0, 0) 10deg 360deg
+          );
+          position: relative;
+        }
+        #wayOfWorking
+          .mainWarper
+          .dyanamic_component
+          .blackBox
+          .hexagon
+          .mid_ball::before {
+          position: absolute;
+          content: "";
+          width: calc(100% - 2px);
+          height: calc(100% - 2px);
+          background-color: #000000;
+          border-radius: 50%;
+        }
+        #wayOfWorking
+          .mainWarper
+          .dyanamic_component
+          .blackBox
+          .hexagon
+          .mid_ball
+          .middle {
+          width: 10px;
+          height: 10px;
+          background-color: #ffd900;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          position: relative;
+        }
+        #wayOfWorking
+          .mainWarper
+          .dyanamic_component
+          .blackBox
+          .hexagon
+          .mid_ball
+          .middle::before {
+          content: "";
+          position: absolute;
+          bottom: 45%;
+          left: 5px;
+          width: 0;
+          height: 0;
+          border-top: 400px solid transparent;
+          border-left: 550px solid rgba(255, 217, 0, 0.4431372549);
+          border-bottom: 340px solid transparent;
+          border-right: 92px solid transparent;
+        }
+      } /*# sourceMappingURL=style.css.map */
+    </style>
+  </head>
+  <body>
+    <div style="width: 100%; height: 100vh"></div>
+    <section id="wayOfWorking">
+      <div class="mainWarper">
+        <!-- ===static=== -->
+        <div class="half static_content">
+          <div class="text_content">
+            <h1>Our</h1>
+            <h1>approach</h1>
+            <p>
+              Only when we understand how a society works can we achieve an
+              inclusive experience. Places that make a difference. This requires
+              a knack for research. That's why we created the INPACT model. We
+              take each step in the model together. With our client, but also
+              always with the end user. This is how we make INPACT.
+            </p>
+            <button class="pro_button">
+              OUR APPROCH
+              <span class="btn_arrow"
+                ><svg
+                  viewBox="0 0 32 32"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                >
+                  <g>
+                    <path
+                      d="M19,26a1,1,0,0,1-.71-.29,1,1,0,0,1,0-1.42L26.59,16l-8.3-8.29a1,1,0,0,1,1.42-1.42l9,9a1,1,0,0,1,0,1.42l-9,9A1,1,0,0,1,19,26Z"
+                    />
+                    <path d="M28,17H4a1,1,0,0,1,0-2H28a1,1,0,0,1,0,2Z" />
+                  </g>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+        <!-- ==dyanamic== -->
+        <div class="half dyanamic_component">
+          <div class="blackBox">
+            <div class="hexagon_container">
+              <span class="outerText outer1">IMAGINE</span>
+              <span class="outerText outer2">NAVIGATE</span>
+              <span class="outerText outer3">POSITION</span>
+              <span class="outerText outer4">ARTIFY</span>
+              <span class="outerText outer5">CONSTRUCT</span>
+              <span class="outerText outer6">TEST</span>
+              <div class="hexagon_warper">
+                <div class="hexagon">
+                  <div class="mid_ball">
+                    <div class="middle"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div style="width: 100%; height: 2000px"></div>
+
+    <!-- ======scripts===== -->
+    <!-- GSAP Core -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- ScrollTrigger Plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Script -->
+    <script>
+      console.log("joy hori");
+
+      window.addEventListener("DOMContentLoaded", () => {
+        let tl1 = gsap.timeline({
+          scrollTrigger: {
+            trigger: "#wayOfWorking",
+            start: "top top",
+            end: "+=3000",
+            scrub: true,
+            pin: true,
+            markers: true,
+          },
+        });
+
+        tl1.to(
+          {},
+          {
+            duration: 1,
+            ease: "none",
+            onUpdate: function () {
+              let progress = tl1.progress(); // 0 to 1
+              let angle;
+              if (progress <= 0.1) {
+                angle = (progress / 0.1) * 35;
+                document.querySelector(
+                  ".middle"
+                ).style.transform = `rotate(0deg)`;
+              } else {
+                angle = 35 + ((progress - 0.1) / 0.9) * (360 - 35);
+                let middleAngle = ((progress - 0.1) / 0.9) * 360;
+                document.querySelector(
+                  ".middle"
+                ).style.transform = `rotate(${middleAngle}deg)`;
+              }
+              document.querySelector(
+                ".mid_ball"
+              ).style.backgroundImage = `conic-gradient(#ffd900 0deg ${angle}deg, rgba(255, 217, 0, 0) ${angle}deg 360deg)`;
+              document.querySelector(
+                ".hexagon_warper"
+              ).style.backgroundImage = `conic-gradient(#ffd900 0deg ${angle}deg, rgba(255, 217, 0, 0) ${angle}deg 360deg)`;
+            },
+          }
+        );
+      });
+    </script>
+  </body>
+</html>

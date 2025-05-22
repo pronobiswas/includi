@@ -15,10 +15,205 @@
     .mainWarper {
       width: 100%;
       display: flex;
+      flex-direction: row;
       gap: 0;
   
       .static_content {
         width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .text_content{
+            width: 80%;
+            padding: 80px 40px;
+            h1{
+                font-size: 6vw;
+                line-height: .8;
+                text-transform: uppercase;
+                margin-bottom: 30px;
+            }
+            p{
+                font-size: 18px;
+                margin-bottom: 40px;
+            }
+            .pro_button {
+              border: 1px solid black;
+              border-radius: 50px;
+              padding: 8px 20px;
+              font-size: 24px;
+              background-color: transparent;
+              transition: .2s all linear;
+              cursor: pointer;
+              .btn_arrow {
+                display: inline-block;
+                transform:  rotate(-45deg);
+                transition: .3s all linear;
+              }
+              &:hover{
+                background-color: #000000;
+                border-color:transparent ;
+                color: #ffd900;
+              }
+              &:hover .btn_arrow{transform: translateY(5px) translateX(5px) rotate(0deg);}
+            }
+
+        }
+      }
+  
+      .dyanamic_component {
+        width: 50%;
+        padding: 10px 10px 0 0;
+  
+        .blackBox {
+          width: 100%;
+          padding: 30px;
+          height: calc(100vh - 100px);
+          background-color: black;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          .hexagon_container{
+            width: 570px;
+            position: relative;
+            background-color: transparent;
+            .outerText{
+                position: absolute;
+                color: #ffd900;
+                z-index: 9;
+                font-size: 24px;
+              }
+              .outer1 {
+                top: 53px;
+                right: 71px;
+                transform: rotate(30deg);
+              }
+              .outer2 {
+                top: 290px;
+                right: -73px;
+                transform: rotate(90deg);
+              }
+              .outer3 {
+                bottom: 52px;
+                right: 67px;
+                transform: rotate(-30deg);
+              }
+              .outer4 {
+                bottom: 10%;
+                left: 10%;
+                transform: rotate(30deg);
+              }
+              .outer5 {
+                top: 50%;
+                left: -17%;
+                transform: rotate(-90deg);
+              }
+              .outer6 {
+                top: 10%;
+                left: 14%;
+                transform: rotate(-30deg);
+              }
+            .hexagon_warper{
+              width: 563px;
+              height: calc(563px * 647 / 563);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+              background: #ffd9003b;
+              background-image: conic-gradient(#ffd900 0deg 1deg, #ffd90000 10deg 360deg);
+              position: relative;
+              z-index: 1;
+              padding: 2px;
+              
+              .hexagon{
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                clip-path: inherit;
+                background-color: #131001;
+                position: relative;
+                overflow: hidden;
+                z-index: 1;
+                .mid_ball{
+                    width: 100px;
+                    height: 100px;
+                    border: 1px solid #ffd9003a;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    background-color: #000000;
+                    background-image: conic-gradient(#ffd900 0deg 10deg, #ffd90000 10deg 360deg);
+                    position: relative;
+                    &::before{
+                        position: absolute;
+                        content: "";
+                        width: calc(100% - 2px);
+                        height: calc(100% - 2px);
+                        background-color: #000000;
+                        border-radius: 50%;
+                    }
+                    .middle{
+                        width: 20px;
+                        height: 20px;
+                        background-color: #ffd900;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 50%;
+                        position: relative;
+                        &::before{
+                            content: "";
+                            position: absolute;
+                            bottom: 45%;
+                            left: 5px;
+                            width: 0;
+                            height: 0;
+                            border-top: 400px solid transparent;
+                            border-left: 550px solid #ffd90071;
+                            border-bottom: 340px solid transparent;
+                            border-right: 92px solid transparent;
+                        }
+                        // &::after{
+                        //     content: '';
+                        //     position: absolute;
+                        //     top: -300px;
+                        //     left: 0;
+                        //     width: 0;
+                        //     height: 0;
+                        //     border-left: 400px solid transparent;
+                        //     border-right: 130px solid transparent;
+                        //     border-bottom: 307px solid #ffd90071;
+                        // }
+                    }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+@media only screen and (max-width: 600px){
+  #wayOfWorking {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    background-color: #ffd900;
+  
+    .mainWarper {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+  
+      .static_content {
+        width: 100%;
+        order: 1;
         .text_content{
             width: 100%;
             padding: 80px 40px;
@@ -35,26 +230,23 @@
       }
   
       .dyanamic_component {
-        width: 50%;
+        width: 100%;
         padding: 10px 10px 0 0;
   
         .blackBox {
           width: 100%;
           padding: 30px;
           height: calc(100vh - 100px);
-          background-color: black;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          overflow: hidden;
           .hexagon{
-            width: 563px;
-            height: 647px;
+            width: 363px;
+            height: calc(363px * 647 / 563);
             display: flex;
             align-items: center;
             justify-content: center;
             clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-            overflow: hidden;
             background-color: #ffd90028;
+            overflow: hidden;
             .mid_ball{
                 width: 100px;
                 height: 100px;
@@ -113,5 +305,4 @@
       }
     }
   }
-  
-
+}

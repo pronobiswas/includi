@@ -14,23 +14,50 @@
 #wayOfWorking .mainWarper {
   width: 100%;
   display: flex;
+  flex-direction: row;
   gap: 0;
 }
 #wayOfWorking .mainWarper .static_content {
   width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #wayOfWorking .mainWarper .static_content .text_content {
-  width: 100%;
+  width: 80%;
   padding: 80px 40px;
 }
 #wayOfWorking .mainWarper .static_content .text_content h1 {
   font-size: 6vw;
-  line-height: 1;
+  line-height: 0.8;
   text-transform: uppercase;
   margin-bottom: 30px;
 }
 #wayOfWorking .mainWarper .static_content .text_content p {
   font-size: 18px;
+  margin-bottom: 40px;
+}
+#wayOfWorking .mainWarper .static_content .text_content .pro_button {
+  border: 1px solid black;
+  border-radius: 50px;
+  padding: 8px 20px;
+  font-size: 24px;
+  background-color: transparent;
+  transition: 0.2s all linear;
+  cursor: pointer;
+}
+#wayOfWorking .mainWarper .static_content .text_content .pro_button .btn_arrow {
+  display: inline-block;
+  transform: rotate(-45deg);
+  transition: 0.3s all linear;
+}
+#wayOfWorking .mainWarper .static_content .text_content .pro_button:hover {
+  background-color: #000000;
+  border-color: transparent;
+  color: #ffd900;
+}
+#wayOfWorking .mainWarper .static_content .text_content .pro_button:hover .btn_arrow {
+  transform: translateY(5px) translateX(5px) rotate(0deg);
 }
 #wayOfWorking .mainWarper .dyanamic_component {
   width: 50%;
@@ -44,8 +71,50 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
-#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon {
+#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container {
+  width: 570px;
+  position: relative;
+  background-color: transparent;
+}
+#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .outerText {
+  position: absolute;
+  color: #ffd900;
+  z-index: 9;
+  font-size: 24px;
+}
+#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .outer1 {
+  top: 53px;
+  right: 71px;
+  transform: rotate(30deg);
+}
+#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .outer2 {
+  top: 290px;
+  right: -73px;
+  transform: rotate(90deg);
+}
+#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .outer3 {
+  bottom: 52px;
+  right: 67px;
+  transform: rotate(-30deg);
+}
+#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .outer4 {
+  bottom: 10%;
+  left: 10%;
+  transform: rotate(30deg);
+}
+#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .outer5 {
+  top: 50%;
+  left: -17%;
+  transform: rotate(-90deg);
+}
+#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .outer6 {
+  top: 10%;
+  left: 14%;
+  transform: rotate(-30deg);
+}
+#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .hexagon_warper {
   width: 563px;
   height: 647px;
   display: flex;
@@ -53,13 +122,29 @@
   justify-content: center;
   -webkit-clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
           clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-  overflow: hidden;
-  background-color: rgba(255, 217, 0, 0.1568627451);
+  background: rgba(255, 217, 0, 0.231372549);
+  background-image: conic-gradient(#ffd900 0deg 1deg, rgba(255, 217, 0, 0) 10deg 360deg);
+  position: relative;
+  z-index: 1;
+  padding: 2px;
 }
-#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon .mid_ball {
+#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .hexagon_warper .hexagon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-clip-path: inherit;
+          clip-path: inherit;
+  background-color: #131001;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .hexagon_warper .hexagon .mid_ball {
   width: 100px;
   height: 100px;
-  border: 1px solid rgba(255, 217, 0, 0.3764705882);
+  border: 1px solid rgba(255, 217, 0, 0.2274509804);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,7 +153,7 @@
   background-image: conic-gradient(#ffd900 0deg 10deg, rgba(255, 217, 0, 0) 10deg 360deg);
   position: relative;
 }
-#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon .mid_ball::before {
+#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .hexagon_warper .hexagon .mid_ball::before {
   position: absolute;
   content: "";
   width: calc(100% - 2px);
@@ -76,9 +161,9 @@
   background-color: #000000;
   border-radius: 50%;
 }
-#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon .mid_ball .middle {
-  width: 10px;
-  height: 10px;
+#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .hexagon_warper .hexagon .mid_ball .middle {
+  width: 20px;
+  height: 20px;
   background-color: #ffd900;
   display: flex;
   align-items: center;
@@ -86,7 +171,7 @@
   border-radius: 50%;
   position: relative;
 }
-#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon .mid_ball .middle::before {
+#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .hexagon_warper .hexagon .mid_ball .middle::before {
   content: "";
   position: absolute;
   bottom: 45%;
@@ -97,4 +182,99 @@
   border-left: 550px solid rgba(255, 217, 0, 0.4431372549);
   border-bottom: 340px solid transparent;
   border-right: 92px solid transparent;
+}
+
+@media only screen and (max-width: 600px) {
+  #wayOfWorking {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    background-color: #ffd900;
+  }
+  #wayOfWorking .mainWarper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  #wayOfWorking .mainWarper .static_content {
+    width: 100%;
+    order: 1;
+  }
+  #wayOfWorking .mainWarper .static_content .text_content {
+    width: 100%;
+    padding: 80px 40px;
+  }
+  #wayOfWorking .mainWarper .static_content .text_content h1 {
+    font-size: 6vw;
+    line-height: 1;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+  #wayOfWorking .mainWarper .static_content .text_content p {
+    font-size: 18px;
+  }
+  #wayOfWorking .mainWarper .dyanamic_component {
+    width: 100%;
+    padding: 10px 10px 0 0;
+  }
+  #wayOfWorking .mainWarper .dyanamic_component .blackBox {
+    width: 100%;
+    padding: 30px;
+    height: calc(100vh - 100px);
+    overflow: hidden;
+  }
+  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon {
+    width: 363px;
+    height: 417.1598579041px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+            clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    background-color: rgba(255, 217, 0, 0.1568627451);
+    overflow: hidden;
+  }
+  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon .mid_ball {
+    width: 100px;
+    height: 100px;
+    border: 1px solid rgba(255, 217, 0, 0.3764705882);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #000000;
+    background-image: conic-gradient(#ffd900 0deg 10deg, rgba(255, 217, 0, 0) 10deg 360deg);
+    position: relative;
+  }
+  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon .mid_ball::before {
+    position: absolute;
+    content: "";
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    background-color: #000000;
+    border-radius: 50%;
+  }
+  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon .mid_ball .middle {
+    width: 10px;
+    height: 10px;
+    background-color: #ffd900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: relative;
+  }
+  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon .mid_ball .middle::before {
+    content: "";
+    position: absolute;
+    bottom: 45%;
+    left: 5px;
+    width: 0;
+    height: 0;
+    border-top: 400px solid transparent;
+    border-left: 550px solid rgba(255, 217, 0, 0.4431372549);
+    border-bottom: 340px solid transparent;
+    border-right: 92px solid transparent;
+  }
 }/*# sourceMappingURL=style.css.map */
