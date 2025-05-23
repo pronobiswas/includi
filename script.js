@@ -106,6 +106,6 @@ window.addEventListener("DOMContentLoaded", () => {
       duration: 10,
       ease: "none",
     },
-    "-=25"
+    "-=20"
   );
 });
