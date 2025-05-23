@@ -5,6 +5,17 @@
   font-family: sans-serif;
 }
 
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  pointer-events: none;
+}
+
 #wayOfWorking {
   width: 100%;
   height: 100%;
@@ -13,6 +24,7 @@
 }
 #wayOfWorking .mainWarper {
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: row;
   gap: 0;
@@ -22,7 +34,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  z-index: 1;
+  background-color: #ffd900;
 }
 #wayOfWorking .mainWarper .static_content .text_content {
   width: 80%;
@@ -62,13 +75,22 @@
 }
 #wayOfWorking .mainWarper .dyanamic_component {
   width: 50%;
-  padding: 10px 10px 0 0;
+  height: 100%;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+#wayOfWorking .mainWarper .dyanamic_component .bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 #wayOfWorking .mainWarper .dyanamic_component .blackBox {
   width: 100%;
-  padding: 30px;
-  height: calc(100vh - 100px);
-  background-color: black;
+  padding: 0;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.63);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -121,10 +143,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  -webkit-clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-          clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-  background: rgba(255, 217, 0, 0.231372549);
-  background-image: conic-gradient(#ffd900 0deg 1deg, rgba(255, 217, 0, 0) 10deg 360deg);
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  background: rgba(255, 217, 0, 0.2274509804);
+  background-image: conic-gradient(#ffd900 0deg 1deg, #000000 10deg 360deg);
   position: relative;
   z-index: 1;
   padding: 2px;
@@ -135,14 +156,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  -webkit-clip-path: inherit;
-          clip-path: inherit;
-  background-color: #131001;
+  clip-path: inherit;
+  background-color: #000000;
   position: relative;
   overflow: hidden;
   z-index: 1;
 }
-#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .hexagon_warper .hexagon .mid_ball {
+#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .hexagon_warper .hexagon .hexagon_overlay {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(0, 0, 0);
+  opacity: 1;
+}
+#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .hexagon_warper .hexagon .hexagon_overlay .mid_ball {
   width: 100px;
   height: 100px;
   border: 1px solid rgba(255, 217, 0, 0.2274509804);
@@ -154,7 +183,7 @@
   background-image: conic-gradient(#ffd900 0deg 10deg, rgba(255, 217, 0, 0) 10deg 360deg);
   position: relative;
 }
-#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .hexagon_warper .hexagon .mid_ball::before {
+#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .hexagon_warper .hexagon .hexagon_overlay .mid_ball::before {
   position: absolute;
   content: "";
   width: calc(100% - 2px);
@@ -162,7 +191,7 @@
   background-color: #000000;
   border-radius: 50%;
 }
-#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .hexagon_warper .hexagon .mid_ball .middle {
+#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .hexagon_warper .hexagon .hexagon_overlay .mid_ball .middle {
   width: 20px;
   height: 20px;
   background-color: #ffd900;
@@ -172,7 +201,7 @@
   border-radius: 50%;
   position: relative;
 }
-#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .hexagon_warper .hexagon .mid_ball .middle::before {
+#wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .hexagon_warper .hexagon .hexagon_overlay .mid_ball .middle::before {
   content: "";
   position: absolute;
   bottom: 45%;
@@ -231,8 +260,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    -webkit-clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-            clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
     background-color: rgba(255, 217, 0, 0.1568627451);
     overflow: hidden;
   }
