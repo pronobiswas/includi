@@ -102,7 +102,7 @@ window.addEventListener("DOMContentLoaded", () => {
     ".hexagon_overlay",
     {
       backgroundColor: "black",
-      opacity: 0.1,
+      opacity: 0,
       duration: 10,
       ease: "none",
     },
@@ -112,7 +112,17 @@ window.addEventListener("DOMContentLoaded", () => {
     ".outerText",
     {
       backgroundColor: "black",
-      opacity: 0.1,
+      opacity: 0,
+      duration: 5,
+      ease: "none",
+    },
+    "-=5"
+  );
+  tl.to(
+    ".mid_ball",
+    {
+      backgroundColor: "black",
+      opacity: 0,
       duration: 5,
       ease: "none",
     },
