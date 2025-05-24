@@ -102,6 +102,7 @@
             color: #ffd900;
             z-index: 9;
             font-size: 24px;
+            opacity: 1;
           }
           .outer1 {
             top: 53px;
@@ -147,7 +148,7 @@
               0 75%,
               0 25%
             );
-            background: #ffd90013;
+            background: #ffd90028;
             background-image: conic-gradient(
               #ffd900 0deg 1deg,
               #000000 10deg 360deg
@@ -155,6 +156,7 @@
             position: relative;
             z-index: 1;
             padding: 2px;
+            transform: scale(1);
 
             .hexagon {
               width: 100%;

@@ -102,10 +102,39 @@ window.addEventListener("DOMContentLoaded", () => {
     ".hexagon_overlay",
     {
       backgroundColor: "black",
-      opacity: 0.5,
+      opacity: 0.1,
       duration: 10,
       ease: "none",
     },
     "-=20"
   );
+  tl.to(
+    ".outerText",
+    {
+      backgroundColor: "black",
+      opacity: 0.1,
+      duration: 5,
+      ease: "none",
+    },
+    "-=5"
+  );
+  tl.to(
+    ".hexagon_warper",
+    {
+      background: "black",
+      duration: 5,
+      ease: "none",
+    },
+    "-=5"
+  );
+  tl.to(
+    ".hexagon_warper",
+    {
+      scale: "5",
+      duration: 8,
+      ease: "none",
+    },
+    "+=8"
+  );
 });
+// hexagon_warper

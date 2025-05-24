@@ -11,7 +11,8 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   z-index: -1;
   pointer-events: none;
 }
@@ -84,7 +85,8 @@
 #wayOfWorking .mainWarper .dyanamic_component .bg-video {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 #wayOfWorking .mainWarper .dyanamic_component .blackBox {
   width: 100%;
@@ -106,6 +108,7 @@
   color: #ffd900;
   z-index: 9;
   font-size: 24px;
+  opacity: 1;
 }
 #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .outer1 {
   top: 53px;
@@ -143,12 +146,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-  background: rgba(255, 217, 0, 0.0745098039);
+  -webkit-clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+          clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  background: rgba(255, 217, 0, 0.1568627451);
   background-image: conic-gradient(#ffd900 0deg 1deg, #000000 10deg 360deg);
   position: relative;
   z-index: 1;
   padding: 2px;
+  transform: scale(1);
 }
 #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .hexagon_warper .hexagon {
   width: 100%;
@@ -156,7 +161,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  clip-path: inherit;
+  -webkit-clip-path: inherit;
+          clip-path: inherit;
   background-color: #000000;
   position: relative;
   overflow: hidden;
@@ -260,7 +266,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    -webkit-clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+            clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
     background-color: rgba(255, 217, 0, 0.1568627451);
     overflow: hidden;
   }
