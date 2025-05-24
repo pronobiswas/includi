@@ -48,10 +48,11 @@ window.addEventListener("DOMContentLoaded", () => {
   tl.to(
     {},
     {
-      duration: 50,
+      duration: 23,
       ease: "none",
       onUpdate: function () {
         const tweenProgress = this.progress();
+        const outerText = document.querySelector(".outerText");
         let angle;
 
         if (tweenProgress <= 0.1) {
@@ -71,6 +72,26 @@ window.addEventListener("DOMContentLoaded", () => {
         document.querySelector(
           ".hexagon_warper"
         ).style.backgroundImage = `conic-gradient(#ffd900 0deg ${angle}deg, rgba(255, 217, 0, 0) ${angle}deg 360deg)`;
+        // do the tect effect
+        const outerTexts = document.querySelectorAll(".outerText");
+        if (outerTexts.length > 0) {
+          const count = outerTexts.length;
+          const step = 1 / count;
+          let currentIdx = Math.floor(tweenProgress / step);
+
+          outerTexts.forEach((el, i) => {
+            el.classList.remove("checked", "upcoming");
+            el.style.color = "rgba(255, 217, 0, 0.54)";
+
+            if (i < currentIdx) {
+              el.classList.add("checked");
+              el.style.color = "rgba(255, 217, 0, 0.78)";
+            } else if (i === currentIdx && tweenProgress < 1) {
+              el.classList.add("upcoming");
+              el.style.color = "rgb(255, 217, 0)";
+            }
+          });
+        }
       },
     }
   );
@@ -93,7 +114,7 @@ window.addEventListener("DOMContentLoaded", () => {
     {
       width: "100%",
       flexGrow: 1,
-      duration: 10,
+      duration: 6,
       ease: "none",
     },
     "-=5"
