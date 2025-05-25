@@ -32,7 +32,14 @@
 
 // });
 
+// JavaScript with GSAP animation
 window.addEventListener("DOMContentLoaded", () => {
+  // Set initial transparent conic gradient
+  document.querySelector(".hexagon_warper").style.backgroundImage =
+    `conic-gradient(rgba(255, 217, 0, 0) 0deg 360deg)`;
+  document.querySelector(".mid_ball").style.backgroundImage =
+    `conic-gradient(rgba(255, 217, 0, 0) 0deg 360deg)`;
+
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: "#wayOfWorking",
@@ -44,7 +51,7 @@ window.addEventListener("DOMContentLoaded", () => {
     },
   });
 
-  // 1. Rotation animation
+  // 1. Rotation animation + conic gradient update + text effects
   tl.to(
     {},
     {
@@ -52,7 +59,6 @@ window.addEventListener("DOMContentLoaded", () => {
       ease: "none",
       onUpdate: function () {
         const tweenProgress = this.progress();
-        const outerText = document.querySelector(".outerText");
         let angle;
 
         if (tweenProgress <= 0.1) {
@@ -61,18 +67,15 @@ window.addEventListener("DOMContentLoaded", () => {
         } else {
           angle = 35 + ((tweenProgress - 0.1) / 0.9) * (360 - 35);
           const middleAngle = ((tweenProgress - 0.1) / 0.9) * 360;
-          document.querySelector(
-            ".middle"
-          ).style.transform = `rotate(${middleAngle}deg)`;
+          document.querySelector(".middle").style.transform = `rotate(${middleAngle}deg)`;
         }
 
-        document.querySelector(
-          ".mid_ball"
-        ).style.backgroundImage = `conic-gradient(#ffd900 0deg ${angle}deg, rgba(255, 217, 0, 0) ${angle}deg 360deg)`;
-        document.querySelector(
-          ".hexagon_warper"
-        ).style.backgroundImage = `conic-gradient(#ffd900 0deg ${angle}deg, rgba(255, 217, 0, 0) ${angle}deg 360deg)`;
-        // do the tect effect
+        document.querySelector(".mid_ball").style.backgroundImage =
+          `conic-gradient(#ffd900 0deg ${angle}deg, rgba(255, 217, 0, 0) ${angle}deg 360deg)`;
+        document.querySelector(".hexagon_warper").style.backgroundImage =
+          `conic-gradient(#ffd900 0deg ${angle}deg, rgba(255, 217, 0, 0) ${angle}deg 360deg)`;
+
+        // Animate text color & classes
         const outerTexts = document.querySelectorAll(".outerText");
         if (outerTexts.length > 0) {
           const count = outerTexts.length;
@@ -81,14 +84,17 @@ window.addEventListener("DOMContentLoaded", () => {
 
           outerTexts.forEach((el, i) => {
             el.classList.remove("checked", "upcoming");
-            el.style.color = "rgba(255, 217, 0, 0.54)";
+            el.style.color = "rgba(255, 217, 0, 0.13)";
+            el.style.transition = "all 0.2s linear";
 
             if (i < currentIdx) {
               el.classList.add("checked");
-              el.style.color = "rgba(255, 217, 0, 0.78)";
+              el.style.color = "rgba(255, 217, 0, 0.56)";
+              el.style.transition = "all 0.2s linear";
             } else if (i === currentIdx && tweenProgress < 1) {
               el.classList.add("upcoming");
               el.style.color = "rgb(255, 217, 0)";
+              el.style.transition = "all 0.2s linear";
             }
           });
         }
@@ -96,7 +102,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   );
 
-  // 2. Move static content out of view
+  // ==== Animate static content out====
   tl.to(
     ".static_content",
     {
@@ -108,7 +114,7 @@ window.addEventListener("DOMContentLoaded", () => {
     ">"
   );
 
-  // 3. Expand dynamic component to full width
+  // ===Expand dynamic content===
   tl.to(
     ".dyanamic_component",
     {
@@ -119,6 +125,8 @@ window.addEventListener("DOMContentLoaded", () => {
     },
     "-=5"
   );
+
+  // ===Fade hexagon overlay===
   tl.to(
     ".hexagon_overlay",
     {
@@ -129,16 +137,18 @@ window.addEventListener("DOMContentLoaded", () => {
     },
     "-=8"
   );
+
+  // ===Fade outerText===
   tl.to(
     ".outerText",
     {
-      backgroundColor: "black",
       opacity: 0,
       duration: 5,
       ease: "none",
     },
     "-=5"
   );
+  // ===Fade mid_ball===
   tl.to(
     ".mid_ball",
     {
@@ -149,6 +159,20 @@ window.addEventListener("DOMContentLoaded", () => {
     },
     "-=5"
   );
+  //===inner tex fadeout
+  tl.to(
+    ".innerTex",
+    {
+      opacity: 1,
+      lineHeight: "1.2",
+      fontSize: "56px",
+      duration: 5,
+      ease: "none",
+    },
+    "-=5"
+  );
+
+  // ===Transition hexagon background and scale====
   tl.to(
     ".hexagon_warper",
     {
@@ -158,14 +182,16 @@ window.addEventListener("DOMContentLoaded", () => {
     },
     "-=3"
   );
+
   tl.to(
     ".hexagon_warper",
     {
-      scale : 4 ,
+      scale: 4,
       duration: 2,
       ease: "none",
     },
     "+=2"
   );
 });
+
 // hexagon_warper

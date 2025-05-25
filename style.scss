@@ -98,6 +98,19 @@
           max-width: 563px;
           position: relative;
           background-color: transparent;
+          .innerTex{
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50% ,-50%);
+            color: #fff;
+            font-size: 44px;
+            text-align: center;
+            line-height: 1.5;
+            opacity: .0;
+            z-index: 9;
+          }
           .outerText {
             position: absolute;
             color: rgba(255, 217, 0, 0.288);
@@ -112,18 +125,18 @@
             }
           }
           .outer1 {
-            top: 53px;
-            right: 71px;
-            transform: rotate(30deg);
+            top: 8%;
+            right: 14%;
+            transform: rotate(32deg);
           }
           .outer2 {
-            top: 290px;
-            right: -73px;
+            top: 47%;
+            right: -14%;
             transform: rotate(90deg);
           }
           .outer3 {
-            bottom: 52px;
-            right: 67px;
+            bottom: 10%;
+            right: 10%;
             transform: rotate(-30deg);
           }
           .outer4 {
@@ -155,7 +168,7 @@
               0 75%,
               0 25%
             );
-            background: #ffd900;
+            background: rgba(255, 217, 0, 0.308);
             background-image: conic-gradient(
               #ffd900 0deg 1deg,
               #000000 10deg 360deg
