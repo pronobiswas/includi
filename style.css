@@ -240,7 +240,7 @@
   border-right: 92px solid transparent;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 992px) {
   #wayOfWorking {
     width: 100%;
     height: 100%;
@@ -249,52 +249,187 @@
   }
   #wayOfWorking .mainWarper {
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     gap: 0;
   }
   #wayOfWorking .mainWarper .static_content {
     width: 100%;
-    order: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    background-color: rgba(255, 217, 0, 0.1215686275);
+    position: static !important;
+    order: 2;
   }
   #wayOfWorking .mainWarper .static_content .text_content {
     width: 100%;
-    padding: 80px 40px;
+    padding: 8px 4px;
   }
   #wayOfWorking .mainWarper .static_content .text_content h1 {
-    font-size: 6vw;
-    line-height: 1;
+    font-size: 24px;
+    line-height: 0.8 !important;
     text-transform: uppercase;
-    margin-bottom: 30px;
+    margin-bottom: 3px;
   }
   #wayOfWorking .mainWarper .static_content .text_content p {
     font-size: 18px;
+    margin-bottom: 40px;
+    margin-top: 8px;
+  }
+  #wayOfWorking .mainWarper .static_content .text_content .pro_button {
+    border: 1px solid black;
+    border-radius: 50px;
+    padding: 8px 20px;
+    font-size: 24px;
+    background-color: transparent;
+    transition: 0.2s all linear;
+    cursor: pointer;
+  }
+  #wayOfWorking .mainWarper .static_content .text_content .pro_button .btn_arrow {
+    display: inline-block;
+    transform: rotate(-45deg);
+    transition: 0.3s all linear;
+  }
+  #wayOfWorking .mainWarper .static_content .text_content .pro_button:hover {
+    background-color: #000000;
+    border-color: transparent;
+    color: #ffd900;
+  }
+  #wayOfWorking .mainWarper .static_content .text_content .pro_button:hover .btn_arrow {
+    transform: translateY(5px) translateX(5px) rotate(0deg);
   }
   #wayOfWorking .mainWarper .dyanamic_component {
     width: 100%;
-    padding: 10px 10px 0 0;
+    height: 100%;
+    padding: 0;
+    position: static !important;
+    top: 0;
+    right: 0;
+    z-index: 9;
+    order: 1;
+  }
+  #wayOfWorking .mainWarper .dyanamic_component .bg-video {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
   #wayOfWorking .mainWarper .dyanamic_component .blackBox {
     width: 100%;
-    padding: 30px;
-    height: calc(100vh - 100px);
+    padding: 10px;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
   }
-  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon {
-    width: 363px;
-    height: 417.1598579041px;
+  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container {
+    width: 100%;
+    max-width: 563px;
+    position: relative;
+    background-color: transparent;
+  }
+  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .innerTex {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    line-height: 1;
+    opacity: 0;
+    z-index: 9;
+  }
+  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .outerText {
+    position: absolute;
+    color: rgba(255, 217, 0, 0.288);
+    z-index: 9;
+    font-size: 24px;
+    opacity: 1;
+  }
+  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .outerText .outerText.checked {
+    background-color: transparent;
+  }
+  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .outerText .outerText.upcoming {
+    background-color: transparent;
+  }
+  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .outer1 {
+    top: 8%;
+    right: 14%;
+    transform: rotate(32deg);
+  }
+  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .outer2 {
+    top: 47%;
+    right: -14%;
+    transform: rotate(90deg);
+  }
+  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .outer3 {
+    bottom: 10%;
+    right: 10%;
+    transform: rotate(-30deg);
+  }
+  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .outer4 {
+    bottom: 10%;
+    left: 10%;
+    transform: rotate(30deg);
+  }
+  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .outer5 {
+    top: 50%;
+    left: -17%;
+    transform: rotate(-90deg);
+  }
+  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .outer6 {
+    top: 10%;
+    left: 14%;
+    transform: rotate(-30deg);
+  }
+  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .hexagon_warper {
+    width: 100%;
+    aspect-ratio: 85/100;
     display: flex;
     align-items: center;
     justify-content: center;
     -webkit-clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
             clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-    background-color: rgba(255, 217, 0, 0.1568627451);
-    overflow: hidden;
+    background: rgba(255, 217, 0, 0.308);
+    background-image: conic-gradient(#ffd900 0deg 1deg, #000000 10deg 360deg);
+    position: relative;
+    z-index: 1;
+    padding: 2px;
+    transform: scale(1);
   }
-  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon .mid_ball {
+  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .hexagon_warper .hexagon {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-clip-path: inherit;
+            clip-path: inherit;
+    background-color: rgb(0, 0, 0);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .hexagon_warper .hexagon .hexagon_overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 0, 0);
+    opacity: 1;
+  }
+  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .hexagon_warper .hexagon .hexagon_overlay .mid_ball {
     width: 100px;
     height: 100px;
-    border: 1px solid rgba(255, 217, 0, 0.3764705882);
+    border: 1px solid rgba(255, 217, 0, 0.2274509804);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -303,7 +438,7 @@
     background-image: conic-gradient(#ffd900 0deg 10deg, rgba(255, 217, 0, 0) 10deg 360deg);
     position: relative;
   }
-  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon .mid_ball::before {
+  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .hexagon_warper .hexagon .hexagon_overlay .mid_ball::before {
     position: absolute;
     content: "";
     width: calc(100% - 2px);
@@ -311,9 +446,9 @@
     background-color: #000000;
     border-radius: 50%;
   }
-  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon .mid_ball .middle {
-    width: 10px;
-    height: 10px;
+  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .hexagon_warper .hexagon .hexagon_overlay .mid_ball .middle {
+    width: 20px;
+    height: 20px;
     background-color: #ffd900;
     display: flex;
     align-items: center;
@@ -321,7 +456,7 @@
     border-radius: 50%;
     position: relative;
   }
-  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon .mid_ball .middle::before {
+  #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .hexagon_warper .hexagon .hexagon_overlay .mid_ball .middle::before {
     content: "";
     position: absolute;
     bottom: 45%;
