@@ -124,10 +124,10 @@ window.addEventListener("DOMContentLoaded", () => {
     {
       backgroundColor: "black",
       opacity: 0,
-      duration: 10,
+      duration: 8,
       ease: "none",
     },
-    "-=20"
+    "-=8"
   );
   tl.to(
     ".outerText",
@@ -153,19 +153,19 @@ window.addEventListener("DOMContentLoaded", () => {
     ".hexagon_warper",
     {
       background: "black",
-      duration: 5,
+      duration: 3,
       ease: "none",
     },
-    "-=5"
+    "-=3"
   );
   tl.to(
     ".hexagon_warper",
     {
-      scale: "5",
-      duration: 8,
+      scale : 4 ,
+      duration: 2,
       ease: "none",
     },
-    "+=8"
+    "+=2"
   );
 });
 // hexagon_warper

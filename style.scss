@@ -86,7 +86,7 @@
       }
       .blackBox {
         width: 100%;
-        padding: 0;
+        padding: 10px;
         height: 100%;
         background-color: rgb(0, 0, 0);
         display: flex;
@@ -94,7 +94,8 @@
         justify-content: center;
         overflow: hidden;
         .hexagon_container {
-          width: 570px;
+          width: 100%;
+          max-width: 563px;
           position: relative;
           background-color: transparent;
           .outerText {
@@ -141,8 +142,8 @@
             transform: rotate(-30deg);
           }
           .hexagon_warper {
-            width: 563px;
-            height: calc(563px * 647 / 563);
+            width: 100%;
+            aspect-ratio: 80 /100;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -154,7 +155,7 @@
               0 75%,
               0 25%
             );
-            background: #ffd90028;
+            background: #ffd900;
             background-image: conic-gradient(
               #ffd900 0deg 1deg,
               #000000 10deg 360deg
@@ -171,7 +172,7 @@
               align-items: center;
               justify-content: center;
               clip-path: inherit;
-              background-color: #000000;
+              background-color: rgb(0, 0, 0);
               position: relative;
               overflow: hidden;
               z-index: 1;
