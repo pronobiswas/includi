@@ -33,34 +33,40 @@
 // });
 
 // JavaScript with GSAP animation
-let tl;
+let smoother;
 
-function createAnimation() {
-  if (tl) {
-    tl.kill();
-    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-  }
+window.addEventListener("DOMContentLoaded", () => {
   const isMobile = window.innerWidth <= 992;
 
-  // Reset initial gradient backgrounds
+  // Initialize ScrollSmoother only on desktop
+  if (!isMobile) {
+    smoother = ScrollSmoother.create({
+      smooth: 1,
+      effects: true,
+      normalizeScroll: true,
+    });
+  }
+
+  // Set initial transparent conic gradient
   document.querySelector(".hexagon_warper").style.backgroundImage =
     `conic-gradient(rgba(255, 217, 0, 0) 0deg 360deg)`;
   document.querySelector(".mid_ball").style.backgroundImage =
     `conic-gradient(rgba(255, 217, 0, 0) 0deg 360deg)`;
 
-  tl = gsap.timeline({
+  const tl = gsap.timeline({
     scrollTrigger: {
       trigger: "#wayOfWorking",
       start: "top top",
-      end: "+=6000",
+      end: "+=5000",
       scrub: true,
       pin: true,
       markers: true,
+      scroller: smoother ? smoother.wrapper() : window,
     },
   });
 
   tl.to({}, {
-    duration: 23,
+    duration: 20,
     ease: "none",
     onUpdate: function () {
       const tweenProgress = this.progress();
@@ -115,9 +121,9 @@ function createAnimation() {
       opacity: 1,
       lineHeight: "1.2",
       fontSize: "30px",
-      duration: 5,
+      duration: 3,
       ease: "none",
-    }, "-=5");
+    }, "-=3");
   } else {
     tl.to(".static_content", {
       x: "-100%",
@@ -128,11 +134,12 @@ function createAnimation() {
 
     tl.to(".innerTex", {
       opacity: 1,
-      lineHeight: "1.2",
+      lineHeight: "1",
       fontSize: "56px",
-      duration: 5,
+      duration: 3,
       ease: "none",
-    }, "-=5");
+      clearProps: "transform" 
+    }, "-=3");
   }
 
   tl.to(".dyanamic_component", {
@@ -174,17 +181,57 @@ function createAnimation() {
     ease: "none",
   }, "+=2");
 
+
+  // === SplitText effect for #section_one ===
+  // Make sure SplitText is loaded before this runs!
+  if (typeof SplitText !== "undefined") {
+    const h1 = document.querySelector("#section_one h1");
+    const p = document.querySelector("#section_one .textAnimate1");
+
+    if (h1) {
+      const splitH1 = new SplitText(h1, { type: "chars" });
+      gsap.from(splitH1.chars, {
+        opacity: 0,
+        y: -40,
+        stagger: {
+          amount:0.8,
+          from:"center"
+        },
+        duration: 0.6,
+        ease: "power2.out",
+        delay: 0.2,
+        repeat:-1,
+        yoyo: true,
+        repeatDelay:0.5,
+      });
+    }
+
+    if (p) {
+      const splitP = new SplitText(p, { type: "words,chars" });
+      gsap.from(splitP.chars, {
+        opacity: 0,
+        y: () => gsap.utils.random(-40, 40), 
+        stagger: {
+          amount:0.6,
+          from:"random"
+        },
+        duration: 0.4,
+        ease: "power2.out",
+        delay: 0.8,
+        repeat:-1,
+        repeatDelay: 0.5,
+      });
+    }
+  } else {
+    console.warn("GSAP SplitText plugin not loaded.");
+  }
+
   ScrollTrigger.refresh();
-}
+});
 
-window.addEventListener("DOMContentLoaded", createAnimation);
-
-let resizeTimeout;
+// Only refresh ScrollTrigger on window resize to update measurements
 window.addEventListener("resize", () => {
-  clearTimeout(resizeTimeout);
-  resizeTimeout = setTimeout(() => {
-    createAnimation();
-  }, 250);
+  ScrollTrigger.refresh();
 });
 
 
