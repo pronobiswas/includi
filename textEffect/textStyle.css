@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+#sectionFirst {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 36, 36, 0.103);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+}
+#sectionFirst .textbox {
+  border: 1px dotted gray;
+  padding: 5px 0;
+  text-align: center;
+  display: inline-block;
+  line-height: 1.6;
+}/*# sourceMappingURL=textStyle.css.map */

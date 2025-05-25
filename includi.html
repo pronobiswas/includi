@@ -12,6 +12,18 @@
         font-family: sans-serif;
       }
 
+      .bg-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        -o-object-fit: cover;
+        object-fit: cover;
+        z-index: -1;
+        pointer-events: none;
+      }
+
       #wayOfWorking {
         width: 100%;
         height: 100%;
@@ -20,6 +32,7 @@
       }
       #wayOfWorking .mainWarper {
         width: 100%;
+        height: 100%;
         display: flex;
         flex-direction: row;
         gap: 0;
@@ -29,7 +42,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        overflow: hidden;
+        z-index: 1;
+        background-color: #ffd900;
       }
       #wayOfWorking .mainWarper .static_content .text_content {
         width: 80%;
@@ -83,13 +97,23 @@
       }
       #wayOfWorking .mainWarper .dyanamic_component {
         width: 50%;
-        padding: 10px 10px 0 0;
+        height: 100%;
+        padding: 0;
+        position: fixed;
+        top: 0;
+        right: 0;
+      }
+      #wayOfWorking .mainWarper .dyanamic_component .bg-video {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
       }
       #wayOfWorking .mainWarper .dyanamic_component .blackBox {
         width: 100%;
-        padding: 30px;
-        height: calc(100vh - 100px);
-        background-color: black;
+        padding: 10px;
+        height: 100%;
+        background-color: rgb(0, 0, 0);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -100,7 +124,8 @@
         .dyanamic_component
         .blackBox
         .hexagon_container {
-        width: 570px;
+        width: 100%;
+        max-width: 563px;
         position: relative;
         background-color: transparent;
       }
@@ -109,11 +134,48 @@
         .dyanamic_component
         .blackBox
         .hexagon_container
+        .innerTex {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-size: 44px;
+        text-align: center;
+        line-height: 1.5;
+        opacity: 0;
+        z-index: 9;
+      }
+      #wayOfWorking
+        .mainWarper
+        .dyanamic_component
+        .blackBox
+        .hexagon_container
         .outerText {
         position: absolute;
-        color: #ffd900;
+        color: rgba(255, 217, 0, 0.288);
         z-index: 9;
         font-size: 24px;
+        opacity: 1;
+      }
+      #wayOfWorking
+        .mainWarper
+        .dyanamic_component
+        .blackBox
+        .hexagon_container
+        .outerText
+        .outerText.checked {
+        background-color: transparent;
+      }
+      #wayOfWorking
+        .mainWarper
+        .dyanamic_component
+        .blackBox
+        .hexagon_container
+        .outerText
+        .outerText.upcoming {
+        background-color: transparent;
       }
       #wayOfWorking
         .mainWarper
@@ -121,9 +183,9 @@
         .blackBox
         .hexagon_container
         .outer1 {
-        top: 53px;
-        right: 71px;
-        transform: rotate(30deg);
+        top: 8%;
+        right: 14%;
+        transform: rotate(32deg);
       }
       #wayOfWorking
         .mainWarper
@@ -131,8 +193,8 @@
         .blackBox
         .hexagon_container
         .outer2 {
-        top: 290px;
-        right: -73px;
+        top: 47%;
+        right: -14%;
         transform: rotate(90deg);
       }
       #wayOfWorking
@@ -141,8 +203,8 @@
         .blackBox
         .hexagon_container
         .outer3 {
-        bottom: 52px;
-        right: 67px;
+        bottom: 10%;
+        right: 10%;
         transform: rotate(-30deg);
       }
       #wayOfWorking
@@ -181,8 +243,8 @@
         .blackBox
         .hexagon_container
         .hexagon_warper {
-        width: 563px;
-        height: 647px;
+        width: 100%;
+        aspect-ratio: 85/100;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -195,14 +257,15 @@
           0 25%
         );
         clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-        background: rgba(255, 217, 0, 0.231372549);
+        background: rgba(255, 217, 0, 0.308);
         background-image: conic-gradient(
           #ffd900 0deg 1deg,
-          rgba(255, 217, 0, 0) 10deg 360deg
+          #000000 10deg 360deg
         );
         position: relative;
         z-index: 1;
         padding: 2px;
+        transform: scale(1);
       }
       #wayOfWorking
         .mainWarper
@@ -218,7 +281,7 @@
         justify-content: center;
         -webkit-clip-path: inherit;
         clip-path: inherit;
-        background-color: #131001;
+        background-color: rgb(0, 0, 0);
         position: relative;
         overflow: hidden;
         z-index: 1;
@@ -230,6 +293,23 @@
         .hexagon_container
         .hexagon_warper
         .hexagon
+        .hexagon_overlay {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(0, 0, 0);
+        opacity: 1;
+      }
+      #wayOfWorking
+        .mainWarper
+        .dyanamic_component
+        .blackBox
+        .hexagon_container
+        .hexagon_warper
+        .hexagon
+        .hexagon_overlay
         .mid_ball {
         width: 100px;
         height: 100px;
@@ -252,6 +332,7 @@
         .hexagon_container
         .hexagon_warper
         .hexagon
+        .hexagon_overlay
         .mid_ball::before {
         position: absolute;
         content: "";
@@ -267,6 +348,7 @@
         .hexagon_container
         .hexagon_warper
         .hexagon
+        .hexagon_overlay
         .mid_ball
         .middle {
         width: 20px;
@@ -285,6 +367,7 @@
         .hexagon_container
         .hexagon_warper
         .hexagon
+        .hexagon_overlay
         .mid_ball
         .middle::before {
         content: "";
@@ -468,6 +551,11 @@
         <div class="half dyanamic_component">
           <div class="blackBox">
             <div class="hexagon_container">
+              <h3 class="innerTex">
+                THIS IS <br />
+                HOW WE MAKE <br />
+                INPACT
+              </h3>
               <span class="outerText outer1">IMAGINE</span>
               <span class="outerText outer2">NAVIGATE</span>
               <span class="outerText outer3">POSITION</span>
@@ -476,8 +564,18 @@
               <span class="outerText outer6">TEST</span>
               <div class="hexagon_warper">
                 <div class="hexagon">
-                  <div class="mid_ball">
-                    <div class="middle"></div>
+                  <video
+                    class="bg-video"
+                    src="./assets/video001.mp4"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                  ></video>
+                  <div class="hexagon_overlay">
+                    <div class="mid_ball">
+                      <div class="middle"></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -495,41 +593,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <!-- Script -->
     <script>
-      // window.addEventListener("DOMContentLoaded", () => {
-
-      //   let tl1 = gsap.timeline({
-      //     scrollTrigger: {
-      //       trigger: "#wayOfWorking",
-      //       start: "top top",
-      //       end: "+=3000",
-      //       scrub: true,
-      //       pin: true,
-      //       markers: true
-      //     }
-      //   });
-
-      //   tl1.to(".middle", {
-      //     rotate: 360,
-      //     duration: 3,
-      //     ease: "none"
-      //   });
-
-      //   tl1.to({}, {
-      //     duration: 3,
-      //     ease: "none",
-      //     onUpdate: function () {
-      //       let progress = tl1.progress();
-      //       let angle = progress * 360;
-      //       document.querySelector(".mid_ball").style.backgroundImage =
-      //         `conic-gradient(#ffd900 0deg ${angle}deg, rgba(255, 217, 0, 0) ${angle}deg 360deg)`;
-      //         document.querySelector(".hexagon_warper").style.backgroundImage =
-      //         `conic-gradient(#ffd900 0deg ${angle}deg, rgba(255, 217, 0, 0) ${angle}deg 360deg)`;
-      //     }
-      //   },0);
-
-      // });
-
       window.addEventListener("DOMContentLoaded", () => {
+        // Set initial transparent conic gradient
+        document.querySelector(
+          ".hexagon_warper"
+        ).style.backgroundImage = `conic-gradient(rgba(255, 217, 0, 0) 0deg 360deg)`;
+        document.querySelector(
+          ".mid_ball"
+        ).style.backgroundImage = `conic-gradient(rgba(255, 217, 0, 0) 0deg 360deg)`;
+
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: "#wayOfWorking",
@@ -541,11 +613,11 @@
           },
         });
 
-        // 1. Rotation animation
+        // 1. Rotation animation + conic gradient update + text effects
         tl.to(
           {},
           {
-            duration: 50,
+            duration: 23,
             ease: "none",
             onUpdate: function () {
               const tweenProgress = this.progress();
@@ -570,32 +642,124 @@
               document.querySelector(
                 ".hexagon_warper"
               ).style.backgroundImage = `conic-gradient(#ffd900 0deg ${angle}deg, rgba(255, 217, 0, 0) ${angle}deg 360deg)`;
+
+              // Animate text color & classes
+              const outerTexts = document.querySelectorAll(".outerText");
+              if (outerTexts.length > 0) {
+                const count = outerTexts.length;
+                const step = 1 / count;
+                let currentIdx = Math.floor(tweenProgress / step);
+
+                outerTexts.forEach((el, i) => {
+                  el.classList.remove("checked", "upcoming");
+                  el.style.color = "rgba(255, 217, 0, 0.13)";
+                  el.style.transition = "all 0.2s linear";
+
+                  if (i < currentIdx) {
+                    el.classList.add("checked");
+                    el.style.color = "rgba(255, 217, 0, 0.56)";
+                    el.style.transition = "all 0.2s linear";
+                  } else if (i === currentIdx && tweenProgress < 1) {
+                    el.classList.add("upcoming");
+                    el.style.color = "rgb(255, 217, 0)";
+                    el.style.transition = "all 0.2s linear";
+                  }
+                });
+              }
             },
           }
         );
 
-        // 2. Move static content out of view
+        // ==== Animate static content out====
         tl.to(
           ".static_content",
           {
-            x: "-200%",
+            x: "-100%",
+            width: "50%",
             duration: 5,
             ease: "none",
           },
           ">"
         );
 
-        // 3. Expand dynamic component to full width
+        // ===Expand dynamic content===
         tl.to(
           ".dyanamic_component",
           {
             width: "100%",
             flexGrow: 1,
-            duration: 10,
+            duration: 6,
             ease: "none",
           },
           "-=5"
-        ); // sync both to start together
+        );
+
+        // ===Fade hexagon overlay===
+        tl.to(
+          ".hexagon_overlay",
+          {
+            backgroundColor: "black",
+            opacity: 0,
+            duration: 8,
+            ease: "none",
+          },
+          "-=8"
+        );
+
+        // ===Fade outerText===
+        tl.to(
+          ".outerText",
+          {
+            opacity: 0,
+            duration: 5,
+            ease: "none",
+          },
+          "-=5"
+        );
+        // ===Fade mid_ball===
+        tl.to(
+          ".mid_ball",
+          {
+            backgroundColor: "black",
+            opacity: 0,
+            duration: 5,
+            ease: "none",
+          },
+          "-=5"
+        );
+        //===inner tex fadeout
+        tl.to(
+          ".innerTex",
+          {
+            opacity: 1,
+            lineHeight: "1.2",
+            fontSize: "56px",
+            duration: 5,
+            ease: "none",
+          },
+          "-=5"
+        );
+
+        // ===Transition hexagon background and scale====
+        tl.to(
+          ".hexagon_warper",
+          {
+            background: "black",
+            duration: 3,
+            ease: "none",
+          },
+          "-=3"
+        );
+
+        tl.to(
+          ".hexagon_warper",
+          {
+            scale: 4,
+            duration: 2,
+            ease: "none",
+          },
+          "+=2"
+        );
       });
     </script>
   </body>

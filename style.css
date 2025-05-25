@@ -162,7 +162,7 @@
 }
 #wayOfWorking .mainWarper .dyanamic_component .blackBox .hexagon_container .hexagon_warper {
   width: 100%;
-  aspect-ratio: 80/100;
+  aspect-ratio: 85/100;
   display: flex;
   align-items: center;
   justify-content: center;
