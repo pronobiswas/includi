@@ -1,87 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <div id="smooth-wrapper">
-      <div id="smooth-content">
 
-        <div style="width: 100%; height: 100vh" id="section_one">
-          <div class="first_section_wrapper">
-            <h1>Scroll Down</h1>
-            <p class="textAnimate1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates, odio ipsam? Quam! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates, odio ipsam? Quam!</p>
-            <div class="bottom_scroll_indicator">
-              <span>Scroll Down</span>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css" />
+  <style>
+    svg {
+      background-color: rgba(243, 199, 5, 0.411);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+
+      <div style="width: 100%; height: 100vh" id="section_one">
+        <div class="first_section_wrapper">
+          <h1>Scroll Down</h1>
+          <p class="textAnimate1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates, odio ipsam?
+            Quam! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates, odio ipsam? Quam!</p>
+          <div class="bottom_scroll_indicator">
+            <span>Scroll Down</span>
+            <div class="svg_box">
+
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="240" height="240" fill="yellow">
+                <rect x="1" y="1" width="60" height="60" rx="8" fill="" />
+                <rect x="50" y="50" width="50" height="50" fill="transparent" stroke="red" stroke-width= "4px" />
+                <circle cx="30" cy="30" r="20" fill="red" />
+                <circle cx="70" cy="70" r="15" fill="blue" />
+                <circle cx="50" cy="50" r="15" fill="tranparent" stroke ="green" stroke-width="3px" />
+                <line x1="10" y1="10" x2="90" y2="90" stroke="black" stroke-width="2" />
+                <line x1="10" y1="10" x2="90" y2="90" stroke="black" stroke-width="2" />
+                <ellipse cx="50" cy="50" rx="20" ry="10" fill="transparent" stroke="purple" stroke-width="2" />
+                <polyline points="60,60 85,95 95,95 95,85 40,40  " fill="transparent" stroke="red" stroke-width="2" />
+              </svg>
+
             </div>
           </div>
         </div>
-        <section id="wayOfWorking">
-          <div class="mainWarper">
-            <!-- ===static=== -->
-            <div class="half static_content">
-              <div class="text_content">
-                <h1>Our</h1>
-                <h1>approach</h1>
-                <p>
-                  Only when we understand how a society works can we achieve an
-                  inclusive experience. Places that make a difference. This requires
-                  a knack for research. That's why we created the INPACT model. We
-                  take each step in the model together. With our client, but also
-                  always with the end user. This is how we make INPACT.
-                </p>
-                <button class="pro_button">
-                  OUR APPROCH
-                  <span class="btn_arrow"
-                    ><svg
-                      viewBox="0 0 32 32"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="currentColor"
-                    >
-                      <g>
-                        <path
-                          d="M19,26a1,1,0,0,1-.71-.29,1,1,0,0,1,0-1.42L26.59,16l-8.3-8.29a1,1,0,0,1,1.42-1.42l9,9a1,1,0,0,1,0,1.42l-9,9A1,1,0,0,1,19,26Z"
-                        />
-                        <path d="M28,17H4a1,1,0,0,1,0-2H28a1,1,0,0,1,0,2Z" />
-                      </g>
-                    </svg>
-                  </span>
-                </button>
-              </div>
+      </div>
+
+
+
+
+
+      <section id="wayOfWorking">
+        <div class="mainWarper">
+          <!-- ===static=== -->
+          <div class="half static_content">
+            <div class="text_content">
+              <h1>Our</h1>
+              <h1>approach</h1>
+              <p>
+                Only when we understand how a society works can we achieve an
+                inclusive experience. Places that make a difference. This requires
+                a knack for research. That's why we created the INPACT model. We
+                take each step in the model together. With our client, but also
+                always with the end user. This is how we make INPACT.
+              </p>
+              <button class="pro_button">
+                OUR APPROCH
+                <span class="btn_arrow"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="24"
+                    height="24" fill="currentColor">
+                    <g>
+                      <path
+                        d="M19,26a1,1,0,0,1-.71-.29,1,1,0,0,1,0-1.42L26.59,16l-8.3-8.29a1,1,0,0,1,1.42-1.42l9,9a1,1,0,0,1,0,1.42l-9,9A1,1,0,0,1,19,26Z" />
+                      <path d="M28,17H4a1,1,0,0,1,0-2H28a1,1,0,0,1,0,2Z" />
+                    </g>
+                  </svg>
+                </span>
+              </button>
             </div>
-            <!-- ==dyanamic== -->
-            <div class="half dyanamic_component">
-              <div class="blackBox">
-                <div class="hexagon_container">
-                  <div class="innerTex">
-                    <h3>THIS IS <br> HOW WE MAKE <br> INPACT</h3>
-                  </div>
-                  <span class="outerText outer1">IMAGINE</span>
-                  <span class="outerText outer2">NAVIGATE</span>
-                  <span class="outerText outer3">POSITION</span>
-                  <span class="outerText outer4">ARTIFY</span>
-                  <span class="outerText outer5">CONSTRUCT</span>
-                  <span class="outerText outer6">TEST</span>
-                  <div class="hexagon_warper">
-                    
-                    <div class="hexagon">
-                      <video
-                        class="bg-video"
-                        src="./assets/video001.mp4"
-                        autoplay
-                        muted
-                        loop
-                        playsinline
-                      ></video>
-                      <div class="hexagon_overlay">
-                        <div class="mid_ball">
-                          <div class="middle"></div>
-                        </div>
+          </div>
+          <!-- ==dyanamic== -->
+          <div class="half dyanamic_component">
+            <div class="blackBox">
+              <div class="hexagon_container">
+                <div class="innerTex">
+                  <h3>THIS IS <br> HOW WE MAKE <br> INPACT</h3>
+                </div>
+                <span class="outerText outer1">IMAGINE</span>
+                <span class="outerText outer2">NAVIGATE</span>
+                <span class="outerText outer3">POSITION</span>
+                <span class="outerText outer4">ARTIFY</span>
+                <span class="outerText outer5">CONSTRUCT</span>
+                <span class="outerText outer6">TEST</span>
+                <div class="hexagon_warper">
+
+                  <div class="hexagon">
+                    <video class="bg-video" src="./assets/video001.mp4" autoplay muted loop playsinline></video>
+                    <div class="hexagon_overlay">
+                      <div class="mid_ball">
+                        <div class="middle"></div>
                       </div>
                     </div>
                   </div>
@@ -89,22 +102,24 @@
               </div>
             </div>
           </div>
-        </section>
-        <div style="width: 100%; height: 2000px"></div>
+        </div>
+      </section>
+      <div style="width: 100%; height: 2000px"></div>
 
-      </div>
     </div>
+  </div>
 
-    <!-- ======scripts===== -->
-    <!-- GSAP Core -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <!-- ScrollTrigger Plugin -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+  <!-- ======scripts===== -->
+  <!-- GSAP Core -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <!-- ScrollTrigger Plugin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
 
 
-    <!-- Script -->
-    <script src="script.js"></script>
-  </body>
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+
 </html>

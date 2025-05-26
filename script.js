@@ -33,6 +33,8 @@
 // });
 
 // JavaScript with GSAP animation
+console.log(document.querySelector(".hexagon_warper"));
+
 let smoother;
 
 window.addEventListener("DOMContentLoaded", () => {
