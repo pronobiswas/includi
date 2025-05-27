@@ -33,7 +33,7 @@
 // });
 
 // JavaScript with GSAP animation
-console.log(document.querySelector(".hexagon_warper"));
+
 
 let smoother;
 
@@ -232,9 +232,9 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // Only refresh ScrollTrigger on window resize to update measurements
-window.addEventListener("resize", () => {
-  ScrollTrigger.refresh();
-});
+// window.addEventListener("resize", () => {
+//   ScrollTrigger.refresh();
+// });
 
 
 // hexagon_warper
