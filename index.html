@@ -176,14 +176,22 @@
   let svg3Rect = null;
 
   if (svg3) {
-    svg3.addEventListener('mouseenter', () => {
+    let lastProgress = 0;
+    svg3.addEventListener('mouseenter', (e) => {
       svg3Rect = svg3.getBoundingClientRect();
+      // Determine entry side: left or right
+      const x = e.clientX - svg3Rect.left;
+      const entryProgress = Math.max(0, Math.min(1, x / svg3Rect.width));
+      lastProgress = entryProgress;
+      gsap.set(svg3Path, {
+        drawSVG: `${Math.floor(entryProgress * 100)}%` // Start from entry side
+      });
     });
     svg3.addEventListener('mousemove', (e) => {
       if (!svg3Rect) svg3Rect = svg3.getBoundingClientRect();
-      // Calculate progress based on mouse X within the SVG
       const x = e.clientX - svg3Rect.left;
       const progress = Math.max(0, Math.min(1, x / svg3Rect.width));
+      lastProgress = progress;
       gsap.to(svg3Path, {
         drawSVG: `${Math.floor(progress * 100)}%`,
         duration: 0.3,
@@ -192,9 +200,10 @@
     });
     svg3.addEventListener('mouseleave', () => {
       svg3Rect = null;
-      // Optionally reset the path
+      // On leave, animate to 0% if left side, 100% if right side
+      const resetTo = lastProgress < 0.5 ? '0%' : '100%';
       gsap.to(svg3Path, {
-        drawSVG: `100%`,
+        drawSVG: resetTo,
         duration: 0.3,
         ease: "power1.out"
       });

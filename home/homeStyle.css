@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#main_wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 0 20px;
+}
+#main_wrapper .starting {
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(39, 33, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#main_wrapper .starting .textWarpper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+#main_wrapper .starting .textWarpper .left_txt {
+  width: -moz-fit-content;
+  width: fit-content;
+  min-width: 250px;
+  padding: 10px 20px;
+  position: relative;
+}
+#main_wrapper .starting .textWarpper .left_txt h3 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-transform: uppercase;
+  font-size: 20px;
+  white-space: nowrap;
+  opacity: 0;
+  color: yellow;
+}
+#main_wrapper .starting .textWarpper .middle_txt {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 10px 20px;
+  position: relative;
+}
+#main_wrapper .starting .textWarpper .middle_txt h3 {
+  text-transform: uppercase;
+  font-size: 20px;
+  white-space: nowrap;
+  color: #fff;
+}
+#main_wrapper .starting .textWarpper .right_txt {
+  width: -moz-fit-content;
+  width: fit-content;
+  min-width: 250px;
+  padding: 10px 20px;
+  position: relative;
+}
+#main_wrapper .starting .textWarpper .right_txt h3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-transform: uppercase;
+  font-size: 20px;
+  white-space: nowrap;
+  opacity: 0;
+  color: yellow;
+}/*# sourceMappingURL=homeStyle.css.map */
